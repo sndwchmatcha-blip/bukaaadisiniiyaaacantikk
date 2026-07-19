@@ -285,8 +285,10 @@ body{
 .gallery img:hover{
     box-shadow:0 20px 40px rgba(0,0,0,.2);
 }
+
 .gallery img.zoom{
-    transform:scale(1.15) rotate(0deg);
-    z-index:100;
+    transform:scale(1.2) rotate(0deg);
+    z-index:999;
+    position:relative;
     transition:.35s;
 }
