@@ -245,3 +245,42 @@ body{
     }
 
     }
+body{
+    background-color:#f8f3d7;
+    background-image:
+    radial-gradient(rgba(255,255,255,.35) 2px,transparent 2px),
+    radial-gradient(rgba(255,255,255,.2) 1px,transparent 1px);
+    background-size:40px 40px,20px 20px;
+    background-position:0 0,10px 10px;
+}
+
+.paper{
+    background:
+    linear-gradient(rgba(255,255,255,.95),rgba(255,255,255,.95)),
+    repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 32px,
+    rgba(240,230,180,.35) 33px
+    );
+.paper::after{
+    content:"";
+    position:absolute;
+    width:120px;
+    height:30px;
+    background:rgba(255,255,255,.45);
+    top:-12px;
+    left:50%;
+    transform:translateX(-50%) rotate(-3deg);
+    border-radius:4px;
+    backdrop-filter:blur(2px);
+    }
+    .gallery img{
+    background:white;
+    padding:10px 10px 35px;
+    cursor:pointer;
+}
+
+.gallery img:hover{
+    box-shadow:0 20px 40px rgba(0,0,0,.2);
+}
