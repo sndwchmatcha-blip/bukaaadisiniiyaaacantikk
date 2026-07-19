@@ -263,6 +263,7 @@ body{
     transparent 32px,
     rgba(240,230,180,.35) 33px
     );
+    }
 .paper::after{
     content:"";
     position:absolute;
