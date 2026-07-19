@@ -95,3 +95,8 @@ window.addEventListener("load",()=>{
     }
 
 });
+.zoom{
+    transform:scale(1.2) rotate(0deg)!important;
+    z-index:999;
+    position:relative;
+        }
