@@ -4,107 +4,244 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-    background:#f8f6ef;
-    color:#333;
     font-family:'Poppins',sans-serif;
+    background:#f8f3d7;
+    color:#3f3f3f;
     overflow-x:hidden;
 }
 
 section{
     min-height:100vh;
     display:flex;
-    align-items:center;
     justify-content:center;
-    flex-direction:column;
+    align-items:center;
     padding:40px 20px;
 }
 
 .hero{
-    background:#f7f0c8;
+    background:linear-gradient(180deg,#fff8e6,#f6e8b1);
     text-align:center;
 }
 
 .hero h1{
     font-family:'Caveat',cursive;
-    font-size:55px;
-    color:#444;
-    margin-bottom:20px;
+    font-size:58px;
+    line-height:1.2;
+    color:#6d5524;
+    margin-bottom:25px;
 }
 
 .hero p{
     max-width:700px;
-    line-height:1.8;
+    margin:15px auto;
+    line-height:1.9;
     font-size:18px;
 }
 
 .btn{
+    display:inline-block;
     margin-top:35px;
-    background:#444;
-    color:white;
-    padding:15px 35px;
+    padding:16px 40px;
     border-radius:50px;
+    background:#d8b34d;
+    color:white;
     text-decoration:none;
+    font-weight:600;
     transition:.3s;
 }
 
 .btn:hover{
     transform:scale(1.05);
-}
-
+    }
 .paper{
-    width:90%;
-    max-width:800px;
-    background:white;
+    width:100%;
+    max-width:850px;
+    background:#fffdf7;
     padding:35px;
-    border-radius:20px;
+    border-radius:25px;
     box-shadow:0 15px 35px rgba(0,0,0,.12);
-    transform:rotate(-1deg);
+    border:2px dashed #e6d59b;
 }
 
 .paper h2{
     font-family:'Caveat',cursive;
-    font-size:45px;
-    margin-bottom:20px;
+    font-size:48px;
+    color:#6d5524;
+    text-align:center;
+    margin-bottom:25px;
 }
 
 .paper p{
-    line-height:2;
     font-size:18px;
+    line-height:2;
+    margin-bottom:18px;
 }
 
 .gallery{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:20px;
-    width:90%;
-    max-width:1000px;
+    margin-top:30px;
 }
 
 .gallery img{
     width:100%;
     border-radius:18px;
-    box-shadow:0 10px 20px rgba(0,0,0,.15);
-    transition:.4s;
+    border:8px solid white;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    transition:.3s;
 }
 
 .gallery img:hover{
-    transform:scale(1.03) rotate(-2deg);
+    transform:rotate(-2deg) scale(1.03);
+}
+#surat{
+    background:#fdf7e3;
 }
 
-.footer{
-    background:#f7f0c8;
+#galeri{
+    background:#f8efd0;
+}
+
+#penutup{
+    background:linear-gradient(180deg,#fff8e6,#f5e2a7);
+}
+
+#penutup .paper{
     text-align:center;
 }
 
-.footer h2{
-    font-family:'Caveat',cursive;
-    font-size:45px;
-    margin-bottom:15px;
+#penutup h2{
+    font-size:56px;
 }
 
-.footer p{
-    max-width:700px;
-    line-height:2;
-    font-size:18px;
+#penutup p{
+    font-size:19px;
 }
+
+img{
+    display:block;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:42px;
+}
+
+.hero p{
+    font-size:16px;
+}
+
+.paper{
+    padding:25px;
+}
+
+.paper h2{
+    font-size:38px;
+}
+
+.paper p{
+    font-size:16px;
+}
+
+.gallery{
+    grid-template-columns:1fr;
+}
+
+.btn{
+    width:100%;
+    text-align:center;
+}
+
+}
+.paper{
+    position:relative;
+    overflow:hidden;
+}
+
+.paper::before{
+    content:"🤍";
+    position:absolute;
+    top:15px;
+    right:20px;
+    font-size:24px;
+    opacity:.25;
+}
+
+.gallery img:nth-child(1){
+    transform:rotate(-4deg);
+}
+
+.gallery img:nth-child(2){
+    transform:rotate(3deg);
+}
+
+.gallery img:nth-child(3){
+    transform:rotate(-2deg);
+}
+
+.gallery img:nth-child(4){
+    transform:rotate(4deg);
+}
+
+.gallery img:nth-child(5){
+    transform:rotate(-3deg);
+}
+
+.gallery img:hover{
+    transform:scale(1.05) rotate(0deg);
+    z-index:10;
+}
+
+.paper{
+    transition:.3s;
+}
+
+.paper:hover{
+    transform:translateY(-5px);
+    }
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#d8b34d;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-track{
+    background:#f8f3d7;
+}
+
+::selection{
+    background:#e8d28b;
+    color:#4a3a18;
+}
+
+html{
+    scroll-padding-top:20px;
+}
+
+body{
+    animation:fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+    }
