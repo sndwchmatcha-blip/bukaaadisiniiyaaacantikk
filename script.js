@@ -15,6 +15,7 @@ window.addEventListener("load", () => {
 const openBtn = document.getElementById("openBtn");
 const cover = document.getElementById("cover");
 const website = document.getElementById("website");
+const music = document.getElementById("bgMusic");
 
 openBtn.addEventListener("click", () => {
 
@@ -35,6 +36,9 @@ openBtn.addEventListener("click", () => {
     startTyping();
 
 },800);
+        
+music.currentTime = 21;
+music.play().catch(() => {});
 
     }, 1000);
 
@@ -104,3 +108,10 @@ async function startTyping(){
     }
 
 }
+music.addEventListener("ended", () => {
+
+    music.currentTime = 21;
+
+    music.play();
+
+});
