@@ -1,97 +1,106 @@
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
 
-    const sections = document.querySelectorAll("section");
+    setTimeout(() => {
 
-    const observer = new IntersectionObserver((entries) => {
+        document.getElementById("loading").style.opacity = "0";
 
-        entries.forEach(entry => {
+        setTimeout(() => {
+            document.getElementById("loading").style.display = "none";
+        }, 1000);
 
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = "1";
-                entry.target.style.transform = "translateY(0)";
-            }
+    }, 2500);
 
+});
+
+const openBtn = document.getElementById("openBtn");
+const cover = document.getElementById("cover");
+const website = document.getElementById("website");
+
+openBtn.addEventListener("click", () => {
+
+    cover.style.opacity = "0";
+    cover.style.transition = "1s";
+
+    setTimeout(() => {
+
+        cover.style.display = "none";
+        website.style.display = "block";
+        for(let i=0;i<25;i++){
+
+    setTimeout(createHeart,i*180);
+
+        }
+        setTimeout(() => {
+
+    startTyping();
+
+},800);
+
+    }, 1000);
+
+});
+function createHeart(){
+
+    const heart=document.createElement("div");
+
+    heart.innerHTML="🤍";
+
+    heart.style.position="fixed";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.top="-40px";
+    heart.style.fontSize=(18+Math.random()*22)+"px";
+    heart.style.pointerEvents="none";
+    heart.style.zIndex="99999";
+    heart.style.transition="transform 6s linear, top 6s linear, opacity 6s";
+    heart.style.opacity=".9";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+
+        heart.style.top="110vh";
+        heart.style.transform=`translateX(${Math.random()*250-125}px) rotate(${Math.random()*360}deg)`;
+        heart.style.opacity="0";
+
+    },50);
+
+    setTimeout(()=>{
+
+        heart.remove();
+
+    },6100);
+
+               }
+const typingElements = document.querySelectorAll(".typing");
+
+async function typeWriter(element){
+
+    const text = element.innerHTML;
+
+    element.innerHTML = "";
+
+    for(let i=0;i<text.length;i++){
+
+        element.innerHTML += text.charAt(i);
+
+        window.scrollTo({
+            top: element.offsetTop-120,
+            behavior:"smooth"
         });
 
-    }, {
-        threshold: 0.2
-    });
-
-    sections.forEach(section => {
-
-        section.style.opacity = "0";
-        section.style.transform = "translateY(50px)";
-        section.style.transition = "all 1s ease";
-
-        observer.observe(section);
-
-    });
-
-});
-const photos = document.querySelectorAll(".gallery img");
-
-photos.forEach((photo) => {
-
-    photo.addEventListener("click", () => {
-
-        if(photo.classList.contains("zoom")){
-            photo.classList.remove("zoom");
-        }else{
-            photos.forEach(p => p.classList.remove("zoom"));
-            photo.classList.add("zoom");
-        }
-
-    });
-
-});
-const button = document.querySelector(".btn");
-
-button.addEventListener("mouseenter", () => {
-    button.style.transform = "scale(1.08)";
-});
-
-button.addEventListener("mouseleave", () => {
-    button.style.transform = "scale(1)";
-});
-
-button.addEventListener("touchstart", () => {
-    button.style.transform = "scale(0.95)";
-});
-
-button.addEventListener("touchend", () => {
-    button.style.transform = "scale(1)";
-});
-
-window.addEventListener("load",()=>{
-
-    for(let i=0;i<18;i++){
-
-        const heart=document.createElement("div");
-
-        heart.innerHTML="🤍";
-
-        heart.style.position="fixed";
-        heart.style.left=Math.random()*100+"vw";
-        heart.style.top="-30px";
-        heart.style.fontSize=(18+Math.random()*18)+"px";
-        heart.style.opacity="0.7";
-        heart.style.pointerEvents="none";
-        heart.style.transition="transform 6s linear, top 6s linear, opacity 6s";
-
-        document.body.appendChild(heart);
-
-        setTimeout(()=>{
-
-            heart.style.top="110vh";
-            heart.style.transform=`translateX(${Math.random()*200-100}px)`;
-            heart.style.opacity="0";
-
-        },100);
-
-        setTimeout(()=>{
-            heart.remove();
-        },6200);
+        await new Promise(resolve=>setTimeout(resolve,35));
 
     }
 
-});
+}
+async function startTyping(){
+
+    for(const item of typingElements){
+
+        await typeWriter(item);
+
+        await new Promise(resolve=>setTimeout(resolve,500));
+
+    }
+
+}
